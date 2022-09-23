@@ -2,7 +2,7 @@
 
 Project intermediate backend pijarcamp dengan beberapa requirement yang harus dipenuhi.
 Project Requirement :
-○ Login & Register \n
+○ Login & Register 
 ○ JWT
 ○ Validasi Role User
 ○ Hash Password
