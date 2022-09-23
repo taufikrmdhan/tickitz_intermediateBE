@@ -4,11 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const xss = require('xss-clean');
+// const cookieparser = require('cookie-parser');
 // buat route
 const cors = require('cors');
-// const userRoute = require('./src/router/user.routes');
-// const recipeRoute = require('./src/router/recipe.routes');
-// const commentRoute = require('./src/router/comment.routes');
+const userRoute = require('./src/router/user.routes');
+const recipeRoute = require('./src/router/recipe.routes');
+const commentRoute = require('./src/router/comment.routes');
 
 const app = express();
 
@@ -17,12 +18,13 @@ try {
   app.use(helmet());
   app.use(bodyParser.json());
   app.use(xss());
-//   app.use(userRoute, recipeRoute, commentRoute);
+  app.use(userRoute, recipeRoute, commentRoute);
+  // app.user(cookieparser());
 } catch (error) {
   console.log(error);
 }
 
 // jalankan express
-app.listen(process.env.PORT, () => {
-  console.log(`server is running on port ${process.env.PORT}`);
+app.listen(4000, () => {
+  console.log('server is running on port 4000');
 });

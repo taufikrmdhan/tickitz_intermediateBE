@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "365fbc8d-a81f-4127-a2fa-2548b5947996",
+		"name": "task_beginnerBE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17865208"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"ratno\",\n    \"email\":\"rat@gmail.com\",\n    \"password\":\"122121\",\n    \"phone\": \"023738\"\n}\n ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama",
+							"value": "nanonano",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "salman@ds",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "121233",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01928799",
+							"type": "text"
+						},
+						{
+							"key": "level",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/pijar/scan kk.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"nanonano\",\n    \"password\": \"121233\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/user/list/47",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"list",
+						"47"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiaXNzcyIsImxldmVsIjpudWxsLCJpYXQiOjE2NjM2ODUyOTh9.cNUTfoQMAJIE-XO4HKW896tLsUbSzKFMebQPAbbiccQ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoibmFub25hbm8iLCJsZXZlbCI6MCwiaWF0IjoxNjYzODM5MTQyfQ.AS13RqhQf1XKbqeBmlm7teXAwWQplSIWK8JkIBVXWFs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/user/list?limit=10&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"list"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiaXNzcyIsImxldmVsIjpudWxsLCJpYXQiOjE2NjM2ODUyOTh9.cNUTfoQMAJIE-XO4HKW896tLsUbSzKFMebQPAbbiccQ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_user",
+							"value": "48",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "66666",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/user/update/48",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"update",
+						"48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoic3VsdGFuIiwibGV2ZWwiOjAsImlhdCI6MTY2Mzc2OTc5NX0.ea4UZlbQBBmG4vusXCcxG7idctZL6tkZwhQyLZx2r-U",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/user/delete/47",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"delete",
+						"47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRecipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_recipe",
+							"value": "23",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "gongo",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
+						},
+						{
+							"key": "ingredient",
+							"value": "masukkan bumbu, siapkan air panas , dan masak",
+							"type": "text"
+						},
+						{
+							"key": "videostep",
+							"value": "dsdsdsd",
+							"type": "text"
+						},
+						{
+							"key": "createdat",
+							"value": "2022-09-09",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipeByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/list/Chicken",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list",
+						"Chicken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listRecipeAsc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/list/asc",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"list",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRecipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/recipe/delete/20",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"delete",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecipe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/update/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecipeImageById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/syauqirs/Desktop/Folder Taufik/foto ktm.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/recipe/update/20",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"recipe",
+						"update",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addComment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_comment\":2,\n    \"id_user\":3,\n    \"id_recipe\":1,\n    \"description\": \"Gak enak bang, rasanya asin banget nih\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/comment/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCommentList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/comment/list",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/comment/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
