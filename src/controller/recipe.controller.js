@@ -4,11 +4,11 @@ const { success, failed } = require('../helper/response');
 const recipeController = {
   insertRecipe: (req, res) => {
     const {
-      title, ingredient, videostep, createdat,
+      title, ingredient, videostep
     } = req.body;
     const image = req.file.filename;
     recipeModel
-      .insertRecipe(title, image, ingredient, videostep, createdat)
+      .insertRecipe(title, image, ingredient, videostep)
       .then((result) => {
         res.json({
           message: 'success insert data',

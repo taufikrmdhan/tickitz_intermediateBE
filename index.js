@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const xss = require('xss-clean');
+// const Redis = require('./module/redis'); 
 // const cookieparser = require('cookie-parser');
 // buat route
 const cors = require('cors');
@@ -14,6 +15,7 @@ const commentRoute = require('./src/router/comment.routes');
 const app = express();
 
 try {
+  // app.enable('trust proxy');
   app.use(cors());
   app.use(helmet());
   app.use(bodyParser.json());
