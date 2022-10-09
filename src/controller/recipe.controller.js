@@ -62,11 +62,13 @@ const recipeController = {
       });
   },
   updateRecipe: (req, res) => {
+    const { id_recipe } = req.params;
     const {
-      id_recipe, title, image, ingredient, videostep, createdat,
+      title, ingredient, videostep
     } = req.body;
+    const image = req.file.filename;
     recipeModel
-      .updateRecipe(id_recipe, title, image, ingredient, videostep, createdat)
+      .updateRecipe(id_recipe, title, image, ingredient, videostep)
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({
