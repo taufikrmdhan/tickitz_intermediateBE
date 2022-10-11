@@ -15,6 +15,7 @@ const commentRoute = require('./src/router/comment.routes');
 const app = express();
 
 try {
+  app.use(express.static('public'));
   // app.enable('trust proxy');
   app.use(cors());
   app.use(helmet());

@@ -5,6 +5,8 @@ const {
 
 const upload = require('../middleware/upload');
 const deleted = require('../middleware/delete');
+const jwtAuth = require('../middleware/jwtAuth');
+const { isAdmin } = require('../middleware/authorization');
 
 const router = express.Router();
 

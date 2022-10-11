@@ -11,9 +11,9 @@ const userModel = {
     });
   }),
   register: ({
-    nama, email, password, phone, level, image,
+    nama, email, password, phone, level
   }) => new Promise((resolve, reject) => {
-    db.query(`INSERT INTO users (nama, email, password, phone, level, image) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level}, '${image}')`, (err, result) => {
+    db.query(`INSERT INTO users (nama, email, password, phone, level) VALUES ('${nama}', '${email}', '${password}', '${phone}', ${level})`, (err, result) => {
       if (err) {
         reject(err);
       } else {
@@ -21,8 +21,8 @@ const userModel = {
       }
     });
   }),
-  checkUsername: (nama) => new Promise((resolve, reject) => {
-    db.query(`SELECT * FROM users WHERE nama = '${nama}'`, (err, result) => {
+  checkUsername: (email) => new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM users WHERE email = '${email}'`, (err, result) => {
       if (err) {
         reject(err);
       } else {

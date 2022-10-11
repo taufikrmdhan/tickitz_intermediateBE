@@ -8,10 +8,11 @@ module.exports = {
   register: (req, res) => {
     try {
       const {
-        nama, email, password, phone, level,
+        nama, email, password, phone
       } = req.body;
-      const image = req.file.filename;
+      // const image = req.file.filename;
       bcrypt.hash(password, 10, (err, hash) => {
+        console.log(hash);
         if (err) {
           failed(res, err.message, 'failed', 'fail hash password');
         }
@@ -20,8 +21,8 @@ module.exports = {
           email,
           password: hash,
           phone,
-          level,
-          image,
+          level: 0
+          // image,
         };
         userModel
           .register(data)
@@ -37,16 +38,16 @@ module.exports = {
     }
   },
   login: async (req, res) => {
-    const { nama, password } = req.body;
+    const { email, password } = req.body;
     userModel
-      .checkUsername(nama)
+      .checkUsername(email)
       .then((result) => {
         const user = result.rows[0];
         if (result.rowCount > 0) {
           bcrypt.compare(password, result.rows[0].password).then(async (result) => {
             if (result) {
               const token = await jwtToken({
-                nama: user.nama,
+                email: user.email,
                 level: user.level,
               });
               // process.env.ACCESS_TOKEN_SECRET,{
@@ -60,7 +61,10 @@ module.exports = {
               // res.cookie('jwt', refreshToken, {
 
               // });
-              successWithToken(res, token, 'success', 'Success login');
+              successWithToken(res,{
+                token,
+                data : user.email
+            }, token, 'success', 'Success login');
             } else {
               failed(res, null, 'failed', 'Username or password wrong');
             }

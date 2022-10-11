@@ -19,7 +19,7 @@ router
   // .delete('/user/delete/:id_user', destroy)
   .delete('/user/delete/:id_user', deleted.remove, destroy)
 
-  .post('/user/register', upload, register)
+  .post('/user/register', register)
   .post('/user/login', login);
 
 module.exports = router;
