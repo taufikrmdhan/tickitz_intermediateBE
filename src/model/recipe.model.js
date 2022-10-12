@@ -22,18 +22,18 @@ const recipeModel = {
       }
     });
   }),
-  // listRecipeByName: (title) => new Promise((resolve, reject) => {
-  //   db.query(
-  //     `SELECT * FROM recipe WHERE title LIKE '%${title}%'`,
-  //     (err, result) => {
-  //       if (err) {
-  //         reject(err);
-  //       } else {
-  //         resolve(result);
-  //       }
-  //     },
-  //   );
-  // }),
+  listRecipeByName: (title) => new Promise((resolve, reject) => {
+    db.query(
+      `SELECT * FROM recipe WHERE lower(title) LIKE lower ('%${title}%')`,
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      },
+    );
+  }),
   listRecipeById: (id_recipe) => new Promise((resolve, reject) => {
     db.query(
       `SELECT * FROM recipe WHERE id_recipe = ${id_recipe}`,

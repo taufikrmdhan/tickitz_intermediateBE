@@ -63,7 +63,10 @@ module.exports = {
               // });
               successWithToken(res,{
                 token,
-                data : user.email
+                data : {
+                  email: user.email,
+                  nama: user.nama
+                }
             }, token, 'success', 'Success login');
             } else {
               failed(res, null, 'failed', 'Username or password wrong');

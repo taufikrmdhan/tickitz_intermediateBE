@@ -29,17 +29,17 @@ const recipeController = {
         res.json(err);
       });
   },
-  // listRecipeByName: (req, res) => {
-  //   const { title } = req.params;
-  //   recipeModel
-  //     .listRecipeByName(title)
-  //     .then((result) => {
-  //       res.json(result.rows);
-  //     })
-  //     .catch((err) => {
-  //       res.json(err);
-  //     });
-  // },
+  listRecipeByName: (req, res) => {
+    const { title } = req.params;
+    recipeModel
+      .listRecipeByName(title)
+      .then((result) => {
+        res.json(result.rows);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
   listRecipeById: (req, res) => {
     const { id_recipe } = req.params;
     recipeModel

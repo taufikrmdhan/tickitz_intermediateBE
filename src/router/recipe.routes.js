@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  insertRecipe, listRecipe, listRecipeById, listRecipeAsc, updateRecipe, deleteRecipe, updateRecipeById,
+  insertRecipe, listRecipe, listRecipeById, listRecipeAsc, updateRecipe, deleteRecipe, updateRecipeById, listRecipeByName
 } = require('../controller/recipe.controller');
 
 const upload = require('../middleware/upload');
@@ -11,8 +11,8 @@ const { isAdmin } = require('../middleware/authorization');
 const router = express.Router();
 
 router
-  // .get('/recipe/list/:title', listRecipeByName)
-  .get('/recipe/list/:id_recipe', listRecipeById)
+  .get('/recipe/list/:title', listRecipeByName)
+  // .get('/recipe/list/:id_recipe', listRecipeById)
   .get('/recipe/list', listRecipe)
   .post('/recipe/list/asc', listRecipeAsc)
   .post('/recipe/add', upload, insertRecipe)
