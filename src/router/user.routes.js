@@ -15,7 +15,7 @@ router
   .get('/user/list', jwtAuth, isAdmin, list)
   .get('/user/list/:id_user', listUserById)
   .post('/user/add', insert)
-  // .put('/user/update/:id_user', deleted.remove, upload, update)
+  .put('/user/update/:id_user', deleted.remove, upload, update)
   .put('/user/update/:email', updateByEmail)
   // .delete('/user/delete/:id_user', destroy)
   .delete('/user/delete/:id_user', deleted.remove, destroy)
