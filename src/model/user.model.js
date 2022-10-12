@@ -66,5 +66,14 @@ const userModel = {
       }
     });
   }),
+  updateByEmail: (email, password) => new Promise((resolve, reject) => {
+    db.query(`UPDATE users SET password = '${password}' WHERE email = '${email}'`, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  }),
 };
 module.exports = userModel;

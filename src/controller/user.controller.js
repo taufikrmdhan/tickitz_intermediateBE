@@ -1,5 +1,6 @@
 const userModel = require('../model/user.model');
 const { success, failed } = require('../helper/response');
+const bcrypt = require('bcrypt');
 
 const userController = {
   insert: (req, res) => {
@@ -56,6 +57,33 @@ const userController = {
         res.json(err);
       });
   },
+  updateByEmail: (req, res) => {
+    // const { password } = req.body;{
+      try {
+        const { email } = req.params;
+        const { password } = req.body; 
+        bcrypt.hash(password, 10, (err, hash) => {
+          console.log(hash);
+          if (err) {
+            failed(res, err.message, 'failed', 'fail hash password');
+          }
+          const data = {
+            email,
+            password: hash,
+          };
+          userModel
+            .updateByEmail(data)
+            .then((result) => {
+              success(res, result, 'success', 'Success update');
+            })
+            .catch((err) => {
+              failed(res, err.message, 'failed', 'Failed update');
+            });
+        });
+      } catch (err) {
+        failed(res, err.message, 'failed', 'internal server error');
+      }
+    },
   destroy: (req, res) => {
     const { id_user } = req.params;
     userModel
