@@ -14,7 +14,7 @@ router
   .get('/recipe/list/:title', listRecipeByName)
   // .get('/recipe/list/:id_recipe', listRecipeById)
   .get('/recipe/list', listRecipe)
-  .post('/recipe/list/asc', listRecipeAsc)
+  .post('/recipe/list/desc', listRecipeAsc)
   .post('/recipe/add', upload, insertRecipe)
   .put('/recipe/update/:id_recipe', deleted.removeRecipe, upload, updateRecipe)
   // .put('/recipe/update/:title', updateRecipeByName)

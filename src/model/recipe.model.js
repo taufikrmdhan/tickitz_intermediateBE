@@ -48,7 +48,7 @@ const recipeModel = {
   }),
   listRecipeAsc: (limit, offset) => new Promise((resolve, reject) => {
     db.query(
-      `SELECT * FROM recipe ORDER BY createdat ASC LIMIT ${limit} OFFSET ${offset}`,
+      `SELECT * FROM recipe ORDER BY createdat DESC LIMIT ${limit} OFFSET ${offset}`,
       (err, result) => {
         if (err) {
           reject(err);
