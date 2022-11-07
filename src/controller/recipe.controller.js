@@ -1,24 +1,45 @@
 const recipeModel = require('../model/recipe.model');
+const cloudinary = require('../helper/cloudinary');
 const { success, failed } = require('../helper/response');
 
 const recipeController = {
-  insertRecipe: (req, res) => {
-    const {
-      title, ingredient, videostep
-    } = req.body;
-    const image = req.file.filename;
-    recipeModel
-      .insertRecipe(title, image, ingredient, videostep)
-      .then((result) => {
-        res.json({
-          message: 'success insert data',
-          data: result,
-        });
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+  // async await insertRecipe
+  insertRecipe: async (req, res) => {
+    try {
+      const {
+       title,ingredient,videostep
+      } = req.body;
+      const image = await cloudinary.uploader.upload(req.file.path);
+      const data = {
+        title,
+        image,
+        ingredient,
+        videostep    
+      };
+      console.log(data);
+      const result = await recipeModel.insertRecipe(data);
+      success(res, result, 'success', 'Success insert recipe');
+    } catch (err) {
+      failed(res, err.message, 'failed', 'Failed insert recipe');
+    }
   },
+  // insertRecipe: (req, res) => {
+  //   const {
+  //     title, ingredient, videostep
+  //   } = req.body;
+  //   const image = req.file.filename;
+  //   recipeModel
+  //     .insertRecipe(title, image, ingredient, videostep)
+  //     .then((result) => {
+  //       res.json({
+  //         message: 'success insert data',
+  //         data: result,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
+  //     });
+  // },
   listRecipe: (req, res) => {
     recipeModel
       .listRecipe()
