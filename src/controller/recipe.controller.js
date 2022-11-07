@@ -1,26 +1,36 @@
-const recipeModel = require('../model/recipe.model');
-const cloudinary = require('../helper/cloudinary');
-const { success, failed } = require('../helper/response');
+const recipeModel = require("../model/recipe.model");
+const cloudinary = require("../helper/cloudinary");
+const { success, failed } = require("../helper/response");
 
 const recipeController = {
   // async await insertRecipe
   insertRecipe: async (req, res) => {
     try {
-      const {
-       title,ingredient,videostep
-      } = req.body;
+      const { title, ingredient, videostep } = req.body;
       const image = await cloudinary.uploader.upload(req.file.path);
+      console.log(image);
       const data = {
         title,
-        image,
+        image: image.original_filename,
         ingredient,
-        videostep    
+        videostep,
       };
       console.log(data);
-      const result = await recipeModel.insertRecipe(data);
-      success(res, result, 'success', 'Success insert recipe');
+      recipeModel
+        .insertRecipe(data)
+        .then((result) => {
+          res.json({
+            message: "success insert data",
+            data: result,
+          });
+        })
+        .catch((err) => {
+          res.json(err);
+        });
+      // const result = await recipeModel.insertRecipe(data);
+      // success(res, result, 'success', 'Success insert recipe');
     } catch (err) {
-      failed(res, err.message, 'failed', 'Failed insert recipe');
+      failed(res, err.message, "failed", "Failed insert recipe");
     }
   },
   // insertRecipe: (req, res) => {
@@ -87,21 +97,19 @@ const recipeController = {
   },
   updateRecipe: (req, res) => {
     const { id_recipe } = req.params;
-    const {
-      title, ingredient, videostep
-    } = req.body;
+    const { title, ingredient, videostep } = req.body;
     const image = req.file.filename;
     recipeModel
       .updateRecipe(id_recipe, title, image, ingredient, videostep)
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({
-            message: 'success update data',
+            message: "success update data",
             data: result,
           });
         } else {
           res.json({
-            message: 'failed update data',
+            message: "failed update data",
           });
         }
       })
@@ -138,12 +146,12 @@ const recipeController = {
       .then((result) => {
         if (result.rowCount == 1) {
           res.json({
-            message: 'success update data',
+            message: "success update data",
             data: result,
           });
         } else {
           res.json({
-            message: 'failed update data',
+            message: "failed update data",
           });
         }
       })
@@ -157,7 +165,7 @@ const recipeController = {
       .deleteRecipe(id_recipe)
       .then((result) => {
         res.json({
-          message: 'success delete data',
+          message: "success delete data",
           data: result,
         });
       })

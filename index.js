@@ -28,8 +28,8 @@ try {
 }
 
 // jalankan express
-app.listen(process.env.PORT, () => {
-  console.log(`App listening at http://localhost:${process.env.PORT}`);
+app.listen(4000, () => {
+  console.log(`App listening at http://localhost:4000`);
 });
 // app.listen(4000, () => {
 //   console.log('server is running on port 4000');

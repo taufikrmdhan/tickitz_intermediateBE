@@ -1,9 +1,11 @@
 const db = require('../config/db');
 
 const recipeModel = {
-  insertRecipe: (title, image, ingredient, videostep) => new Promise((resolve, reject) => {
+  insertRecipe: ({title, image, ingredient, videostep}) => {
+  return new Promise((resolve, reject) => {
     db.query(
-      `INSERT INTO recipe (title, image, ingredient, videostep, createdat) VALUES ('${title}', '${image}', '${ingredient}', '${videostep}', now())`,
+      `INSERT INTO recipe (title, image, ingredient, videostep, createdat) VALUES
+       ('${title}', '${image}', '${ingredient}', '${videostep}', now())`,
       (err, result) => {
         if (err) {
           reject(err);
@@ -12,7 +14,20 @@ const recipeModel = {
         }
       },
     );
-  }),
+  });
+  },
+  //   register: ({ username, phone, password, image }) => {
+  //   return new Promise((resolve, reject) => {
+  //     db.query(`INSERT INTO users(username, phone, password, image)
+  //     VALUES
+  //     ('${username}', '${phone}', '${password}', '${image}')`, (err, res) => {
+  //       if (err) {
+  //         reject(err)
+  //       }
+  //       resolve(res)
+  //     })
+  //   })
+  // },
   listRecipe: () => new Promise((resolve, reject) => {
     db.query('SELECT * FROM recipe', (err, result) => {
       if (err) {
