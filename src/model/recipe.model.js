@@ -1,11 +1,11 @@
 const db = require('../config/db');
 
 const recipeModel = {
-  insertRecipe: ({title, image, ingredient, videostep}) => {
+  insertRecipe: ({title, image, ingredient, videostep, image_url, image_public_id, image_secure_url}) => {
   return new Promise((resolve, reject) => {
     db.query(
-      `INSERT INTO recipe (title, image, ingredient, videostep, createdat) VALUES
-       ('${title}', '${image}', '${ingredient}', '${videostep}', now())`,
+      `INSERT INTO recipe (title, image, ingredient, videostep, image_url, image_public_id, image_secure_url, createdat) VALUES
+       ('${title}', '${image}', '${ingredient}', '${videostep}','${image_url}','${image_public_id}','${image_secure_url}', now())`,
       (err, result) => {
         if (err) {
           reject(err);
@@ -73,9 +73,9 @@ const recipeModel = {
       },
     );
   }),
-  updateRecipe: (id_recipe, title, image, ingredient, videostep) => new Promise((resolve, reject) => {
+  updateRecipe: ({id_recipe, title, image, ingredient, videostep, image_public_id, image_url, image_secure_url}) => new Promise((resolve, reject) => {
     db.query(
-      `UPDATE recipe SET title = '${title}', image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}' WHERE id_recipe = ${id_recipe}`,
+      `UPDATE recipe SET title = '${title}', image = '${image}', ingredient = '${ingredient}', videostep = '${videostep}',image_public_id = '${image_public_id}',image_url = '${image_url}',image_secure_url = '${image_secure_url}' WHERE id_recipe = ${id_recipe}`,
       (err, result) => {
         if (err) {
           reject(err);
