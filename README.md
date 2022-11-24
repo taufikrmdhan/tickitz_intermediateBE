@@ -1,29 +1,35 @@
-# intermediateBE
+<h1 align="center">Hire Job</h1>
 
-Project intermediate backend pijarcamp dengan beberapa requirement yang harus dipenuhi.
+## Description
+Hirejobs adalah sebuah aplikasi untuk mencari kerja yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan Next.js. Pada aplikasi ini, user bisa login sebagai perekrut dan pencari kerja. Dalam menu pencari kerja nanti akan menampilkan list user pencari kerja beserta beberapa informasi terkait data pribadinya, selain itu user juga bisa melakukan CRUD pada halaman profile nya sendiri. Dalam menu perekrut nanti akan menampilkan list perekrut beserta beberapa data perusahaannya, serta perekrut juga dapat melakukan CRUD pada halaman profile perekrutnya.
 
-## Project Requirement :
+## Run Project
+Install package : npm i
 
-○ Login & Register 
+Run Project : npm start
 
-○ JWT (Authentication)
+## Project Structure
 
-○ Validasi Role User (Authorization)
+```
+|── Backend
+   |── public    # File image from multer
+   |── src       # Project source code
+       |── config        # config db
+       |── controller    # Logic/controller db
+       |── helper        # setting env, generateJWT and standard response
+       |── middleware    # setting Authentication, jwtAuth, and config multer (delete and upload image)
+       |── model         # model / db query
+       |── router        # route API
+   |── .env            # Setting env backend to connecting   
+   |── .gitignore      # File name for not uploaded on github
+   |── .README.md      # For Readme In github
+```
 
-○ Hash Password (Security password)
+## Related Project
+Frontend web Application.\
+[frontend-FoodRecipe](https://github.com/taufikrmdhan/foodrecipe_react_redux)
 
-○ Image (POST, UPDATE, DELETE)
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Post : by MULTER NodeJs.
-Delete : by fs NodeJs.
-Update : Delete & Post.
-
-○ File Validation
-
-Using limit and extension file by multer.
-
-○ Linter
-
-Style code use Airbnb 
-
-
+Please make sure to update tests as appropriate.
