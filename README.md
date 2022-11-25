@@ -1,7 +1,7 @@
 <h1 align="center">Food Recipe</h1>
 
 ## Description
-Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
+Food Recipe is a food recipe application developed using several technologies including PostgreSQL, Express.js, and React.js. This application allows users to view food recipes and delete, update, and make recipes.
 
 ## Run Project
 Install package : npm i
