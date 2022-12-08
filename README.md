@@ -28,6 +28,9 @@ Run Project : npm start
 ## Related Project
 Frontend web Application.\
 [frontend-FoodRecipe](https://github.com/taufikrmdhan/foodrecipe_react_redux)
+<br/>
+[deploy-FoodRecipe](https://foodrecipe-roan.vercel.app/)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
