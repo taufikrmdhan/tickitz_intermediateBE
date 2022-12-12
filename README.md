@@ -25,6 +25,24 @@ Run Project : npm start
    |── .README.md      # For Readme In github
 ```
 
+## Build With
+
+<ul id="user-content-build-with" dir="auto">
+  <li><a href="https://www.postgresql.org/" rel="nofollow">postgre SQL (for Database Management System)</a></li>
+  <li><a href="https://www.postman.com/" rel="nofollow">Postman for API documentation management</a></li>
+  <li><a href="https://www.npmjs.com/" rel="nofollow">NPM for dependency management</a></li>
+  <li><a href="https://github.com/motdotla/dotenv">dotenv: for using environment variabels</a></li>
+  <li><a href="https://helmetjs.github.io/" rel="nofollow">helmet: for set security HTTP headers</a></li>
+  <li><a href="https://www.npmjs.com/package/xss" rel="nofollow">XSS: to sanitize untrusted HTML (to prevent XSS)</a></li>
+  <li><a href="https://github.com/expressjs/cors">CORS: Cross-Origin Resourece-Sharing enabled using</a></li>
+  <li><a href="https://github.com/kelektiv/node.bcrypt.js">bcrypt: for hashing password</a></li>
+  <li><a href="https://eslint.org/" rel="nofollow">ESLINT: for linting and prettier code formatter</a></li>
+  <li><a href="https://expressjs.com/" rel="nofollow">ExpressJS: for CRUD management</a></li>
+  <li><a href="https://jwt.io/" rel="nofollow">JWT: for generate JSON WEB TOKEN</a></li>
+  <li><a href="https://nodejs.org/en/" rel="nofollow">NodeJS</a></li>
+  <li><a href="https://github.com/taufikrmdhan/tickitz_intermediateBE/blob/main/package.json">and you can see the dependencies used in the package.json</a></li>
+</ul>
+
 ## Related Project
 Frontend web Application.\
 [frontend-FoodRecipe](https://github.com/taufikrmdhan/foodrecipe_react_redux)
